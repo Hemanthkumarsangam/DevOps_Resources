@@ -1,6 +1,6 @@
 Commands 			- usage
 Echo 	 			- print
-whomani  			- user info
+whoami  			- user info
 id       			- users group id 
 					uid: Your User ID (a unique numerical identifier).
 					gid: Your primary Group ID.
