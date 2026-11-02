@@ -1,0 +1,63 @@
+Commands 			- usage
+Echo 	 			- print
+whomani  			- user info
+id       			- users group id 
+					uid: Your User ID (a unique numerical identifier).
+					gid: Your primary Group ID.
+					groups: All the groups you are a member of.
+id <username> 			- details of user
+id -un   			- username of the current user id
+pwd 				- presemt working directory
+man <command>  			- manual of the commant
+ls  	           		- contents of present directory
+ls <path>	      		- contents of specified path 
+cd	       			- change directory
+cd ..	      			- go to parent dirdctory
+cd ../..	      		- go to super parent directory
+cd ~          			- go to root directory
+cd <absolute path>  		- go to specified path
+touch				- To create an empty file. If the file already exists, it updates the file's timestamp without changing its content
+mkdir <directory>		- create a new directory
+mkdir -p <parent/child>		- create a new parent and child directory
+echo <text> > <filename>	- echo is a command that prints text. The > symbol redirects the output of echo into a file named file2.txt. If the file doesn't exist, 				   it's created. If it does exist, its content is replaced.
+cp <file> <file or directory>   - copying contents of file to another file or copying file to another directory
+cp -r <directory> <directory>   - copying all contents of directory to another directory
+mv <old name> <newname>   	- renaming files and directories
+mv <file> <directory>		- moving file from one location to another directory
+rm <file>			- remove file permanently 
+rm -r <directory>		- remove a directory including all the contents of directory
+rmdir -r <directory>		- remove an empty directory
+cat <filename>			- viewing the contents of file
+				- [-n] view the file content along with line numbers
+head -n<number> 		- prints the first n number of lines of the file
+head -c<number>			- prints the first n number of characters of the file
+tail -n<number> 		- prints the last n number of lines of the file
+tail -c<number>			- prints the last n number of characters of the file
+diff <file1> <file2>		- compare file1 with file2, prints the lines of file1 which are not in file2
+diff -r <folder1> <folder2>	- compare folder1 with folder2, prints the files of folder1 which are not in folder2
+sudo 				- grants superior privilege to run commands
+chown <user>:<group> <filename> - changes the ownership of the file to specified owner and group [requires sudo privilege]
+				- {-R} changes ownership of the folder to specified user and grouop [requires sudo privilege]
+
+	  [ permissions of a file eg: -rw-rw-r--, the first '-' represents its a file whereas for a folder that will be 'd', 
+	    'r' - read: 4, 'w' - write: 2, 'x' - execute: 1, 4+2+1 = 7; If the user having all the permission that can be stated with 7 and vise versa
+	    next three literals rw-: represents permissions of user/owner, next three literals are for the user group, and the last three are for everyone else ]  
+
+chmod [requires sudo privilege]
+chmod 750 <filename>		- granting all the permission to owner, read and execute permission to group member and no persmission to external user 
+chmod 755 -R <folder>		- granting all the permission to owner, read and execute permission to group member and external user for the folder
+chmod u+x <filename>		- granting user execute permission [+ add permission and - removes; a - all permissions and r, w, x for inidvidual]
+
+useradd[requires sudo privilege]
+useradd <username>		- creates a new user with the provided username; with '-m' creates a home directory for user to store their files in that directory
+grep -w <username> /etc/passwd	- verification is the user existing in the userlist or not [requires sudo privilege]
+sudo passwd <username>		- create a password for user; [-l: locks the user account]; [-u: unlocks the user account]
+usermod -d <directory> <user>	- create a base directory for the existing user [requires sudo privilege]
+usermod -s <bash> <user>	- change the bash scripting for user [requires sudo privilege]
+usermod -aG <group> <user>	- append the user to the group [requires sudo privilege]
+su - <user>			- switching to the specified user [requires password]
+userdel -r <username>		- deletes user and their home directory [requires sudo privilege]
+
+uname -a 			- displays all the kernel details
+uptime				- displays the uptime, no.of users at moment and load average of the current server
+tar -czf 			- archives the target files into a .gzip file [ c: creating new gzip, z: compressing the files, f: specifying filenames]

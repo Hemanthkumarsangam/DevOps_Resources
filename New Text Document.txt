@@ -1,0 +1,8 @@
+Build app
+Dockerize it
+Push to GitHub
+Create CI/CD
+Deploy to AWS
+Run on Kubernetes
+Monitor with Grafana
+Provision with Terraform

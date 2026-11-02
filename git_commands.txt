@@ -1,0 +1,9 @@
+git init				- initializing a git repository
+git status				- checking the status of the repo [ untracked files, uncommitted changed, commits and branches]
+git add <filename/folder name>		- adding the file or folder to git repo so the git make track of the changes in them; 
+					  [ '.' instead of file/folder name works as universal selector ]
+git commit -m "commit message" 		- committing the unsaved changes to the branch, -m refers to message
+git log					- view the logs of the previous commits and branch merges
+git config --list			- displays all configured variables and their values
+git config user.name			- displays the current username 
+git config user.email			- displays the current user email
