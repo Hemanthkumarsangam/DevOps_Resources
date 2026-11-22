@@ -1,9 +1,21 @@
-git filter-branch -f --env-filter '
-CORRECT_NAME="Your Corporate Name"
-CORRECT_EMAIL="your.corporate.email@accenture.com"
+# This Dockerfile is used to create a Docker image for running Playwright tests. It uses the official Playwright image as the base image, which includes all necessary dependencies for running Playwright.
+FROM mcr.microsoft.com/playwright:v1.64.1-noble
 
-export GIT_AUTHOR_NAME="$CORRECT_NAME"
-export GIT_AUTHOR_EMAIL="$CORRECT_EMAIL"
-export GIT_COMMITTER_NAME="$CORRECT_NAME"
-export GIT_COMMITTER_EMAIL="$CORRECT_EMAIL"
-' -- --all
+# Set the working directory inside the container to /app
+WORKDIR /app
+
+# Copy the package.json and package-lock.json files to the working directory
+COPY package*.json ./
+
+# Install the dependencies defined in package.json
+RUN npm install
+RUN npx playwright install --with-deps
+
+# Copy the rest of the application code to the working directory
+COPY . .
+
+# Expose port 3000 for the application
+EXPOSE 3000
+
+# Set the default command to run when the container starts
+CMD ["node", "./fe/server.js"]
